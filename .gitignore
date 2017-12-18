@@ -1,0 +1,8 @@
+*.pyc
+__pycache__
+*.egg
+*.swp
+venv/
+Neil.egg-info
+dist/
+build/
