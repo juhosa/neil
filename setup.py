@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup( 
         name='Neil', 
         description='A utility program to generate boilerplate code/text from templates.',
-        version='1.0.1', 
+        version='1.0.2', 
         license='MIT',
         author='Juho Salli',
         author_email='juho@jsalli.com',
