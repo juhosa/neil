@@ -14,6 +14,6 @@ setup(
         install_requires=[ 'Click', 'Jinja2' ], 
         entry_points='''
             [console_scripts]         
-            neil=main:cli
+            neil=neil.main:cli
         ''', 
         )
