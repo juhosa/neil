@@ -29,6 +29,26 @@ def cli():
     pass
 
 
+def remove(template):
+    # click.echo('Template to be removed: {}'.format(template))
+    names = get_template_names()
+    
+    if template not in names:
+        click.echo('Error -- Unknown template')
+        sys.exit(1)
+
+    shutil.rmtree(get_templates_dir() + template)
+
+
+@click.command('remove')
+@click.argument('template')
+def remove_template(template):
+    """
+    Remove a template
+    """
+    remove(template)
+
+
 @click.command('list')
 def list_templates():
     """
@@ -45,15 +65,35 @@ def list_templates():
         print('- {}'.format(d))
 
 
+@click.command('update')
+@click.argument('src')
+def update_template(src):
+    """
+    Updates existing templates
+    """
+    # remove
+    template_name = os.path.basename(src)
+    remove(template_name)
+
+    # add
+    add_template(src)
+
+
+def add_template(src):
+    bname = os.path.basename(src)
+    templates_dir = get_templates_dir()
+    shutil.copytree(src, templates_dir + bname)
+
 @click.command('add')
 @click.argument('src')
 def add_new_template(src):
     """
     Add a new template to the program
     """
-    bname = os.path.basename(src)
-    templates_dir = get_templates_dir()
-    shutil.copytree(src, templates_dir + bname)
+    add_template(src)
+    # bname = os.path.basename(src)
+    # templates_dir = get_templates_dir()
+    # shutil.copytree(src, templates_dir + bname)
 
 
 @click.command('new')
@@ -108,3 +148,8 @@ def main(template):
 cli.add_command(list_templates)
 cli.add_command(main)
 cli.add_command(add_new_template)
+cli.add_command(remove_template)
+cli.add_command(update_template)
+
+if __name__ == '__main__':
+    cli()
