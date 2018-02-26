@@ -1,0 +1,20 @@
+{
+	"author": {
+		"name": "Juho Salli",
+		"github_username": "juhosa"
+	},
+	"template": {
+		"version": 1,
+		"name": "flask-restful-example",
+		"description": "Simple example of Neil templates, using Flask-Restful"
+	},
+	"questions": [
+		{"question": "Resource name?", "param_name": "resource_name"},
+		{"question": "Add health check endpoint? (yes/no)", "param_name": "health_check"}
+	],
+	"post-generate": {
+		"commands": [
+			{"command": "ls -haltr"}
+		]
+	}
+}

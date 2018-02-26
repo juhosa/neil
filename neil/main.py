@@ -3,7 +3,7 @@ import os
 import sys
 import json
 import shutil
-import neil
+from neil import neil
 
 
 
@@ -144,12 +144,8 @@ def main(template):
     neil.start(params)
     click.echo('Generate done.')
 
-
 cli.add_command(list_templates)
 cli.add_command(main)
 cli.add_command(add_new_template)
 cli.add_command(remove_template)
 cli.add_command(update_template)
-
-if __name__ == '__main__':
-    cli()

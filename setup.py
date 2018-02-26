@@ -1,16 +1,15 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 setup( 
         name='Neil', 
         description='A utility program to generate boilerplate code/text from templates.',
-        version='1.0.3', 
+        version='1.0.0', 
         license='MIT',
         author='Juho Salli',
         author_email='juho@jsalli.com',
         url='https://github.com/juhosa/neil',
-        packages=find_packages(), 
-        include_package_data=True,
+        packages=['neil'], 
         install_requires=[ 'Click', 'Jinja2' ], 
         entry_points='''
             [console_scripts]         
